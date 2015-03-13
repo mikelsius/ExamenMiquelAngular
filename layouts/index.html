@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="bootstrap.min.css">
+
+
+
+    <title>AngularJS Act_3</title>
+</head>
+
+<body ng-app="appLlibres">
+    <div class="container" ng-controller = "LlibresController">
+        <div class="row">
+            <div class="jumbotron">
+                <div class="container text-center">
+                    <h3>Exemple d'API REST i Angular</h3>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4" id="llistatLlibres" >
+                <fieldset>
+                <legend>Llistat de llibres:</legend>
+                <ul>
+                    <li ng-repeat="llibre in llibres">Titol: {{llibre.titol}} </br> ISBN: {{llibre.isbn}}
+                        <button ng-click="editar(llibre)">Editar</button>
+                      <button ng-click="esborrar(llibre)">Esborrar</button>
+                       </li>
+                </ul>
+                </div>
+                </fieldset>
+            
+
+            <div class="col-md-offset-4 col-md-4" id="llibreNou">
+               <fieldset>
+                <legend>Afegir llibre nou:</legend> Títol:
+                <input type="text" ng-model= "titolN" name="titolA" id="titolA" />
+                </br>
+                </br>
+                ISBN:
+                <input type="text" ng-model="isbnN" name="isbnA" id="isbnA" />
+                </br>
+                </br>
+                <input type="button" value="Cancelar" />
+                <input type="button" value="Afegir" ng-click="afegirLlibre()" />
+                </fieldset>
+            </div>
+        </div>
+        </br>
+        <div class="row">
+            <div class="col-md-offset-8 col-md-4" id="llibreEditar">
+               <fieldset>
+                <legend>Editar llibre:</legend> Títol:
+                <input type="text" ng-model="titolE" id="titolE" />
+                </br>
+                </br>
+                ISBN:
+                <input type="text" ng-model="isbnE" id="isbnE" />
+                </br>
+                </br>
+                <input type="button" value="Cancelar" />
+                <input type="button" ng-click="actualitzar()" value="Afegir" />
+                </fieldset>
+            </div>
+        </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.11/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.11/angular-resource.min.js"></script>
+    <script src="app.js"></script>
+</body>
+
+
+</html>
