@@ -10,7 +10,7 @@ app.use("/",require("./controllers/static"));
 //
 app.get('/', function(req,res){
    
-    res.render('index');
+    res.render('layouts/index');
 });
 app.listen(8080, function() {
     console.log("Server started on", 8080);
