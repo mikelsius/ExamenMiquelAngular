@@ -8,6 +8,10 @@ app.use("/api/productes", require("./controllers/api/productes"));
 app.use("/",require("./controllers/static"));
 
 //
+app.get('/layouts/index', function(req,res){
+   
+    res.render('angular');
+});
 app.listen(8080, function() {
     console.log("Server started on", 8080);
 });
