@@ -1,61 +1,69 @@
 var appLlibres = angular.module("appLlibres", ['ngResource']);
 
 appLlibres.controller("LlibresController", function ($scope, LlibresSvc) {
-    $scope.llibres = [];
-    LlibresSvc.query(function (llibres) {
-        $scope.llibres = llibres;
+    $scope.productes = [];
+    LlibresSvc.query(function (productes) {
+        $scope.productes = productes;
     });
 
     $scope.afegirLlibre = function() {
         LlibresSvc.save({
-            titol: $scope.titolN,
-            isbn: $scope.isbnN,
-            autors: [""]
+            codi: $scope.codiN,
+            nom: $scope.nomN,
+            seccio: $scope.seccioN,
+            preu: $scope.preuN
         }, function(){
-            $scope.llibres.unshift({
-                titol: $scope.titolN,
-                isbn: $scope.isbnN,
-                autors: [""]
+            $scope.productes.unshift({
+                codi: $scope.codiN,
+                nom: $scope.nomN,
+                seccio: $scope.seccioN,
+                preu: $scope.preuN
             });
             
-            $scope.titolN = "";
-            $scope.isbnN = "";
+            $scope.codiN = "";
+            $scope.nomN = "";
+            $scope.seccioN = "";
+            $scope.preuN = "";
         });
     };
-    $scope.editar = function(llibre) {
-        $scope.isbnE= llibre.isbn;
-        $scope.titolE = llibre.titol;
-        $scope.llibreEdit = llibre;
+    $scope.editar = function(producte) {
+        $scope.codiE= producte.codi;
+        $scope.nomE = producte.nom;
+        $scope.seccioE= producte.seccio;
+        $scope.preuE = producte.preu;
+        $scope.producteEdit = producte;
         
-      console.log(llibre);   
+      console.log(producte);   
     }
     
     $scope.actualitzar = function() {
-        if ($scope.isbnE && $scope.titolE) {
-            LlibresSvc.update({"_id": $scope.llibreEdit._id , "isbn": $scope.isbnE , "titol" : $scope.titolE}, function() { 
-                    $scope.llibreEdit.isbn = $scope.isbnE;
-                    $scope.llibreEdit.titol = $scope.titolE;
+        if ($scope.codiE && $scope.nomE) {
+            LlibresSvc.update({"_id": $scope.producteEdit._id , "codi": $scope.codiE , "nom" : $scope.nomE, "seccio" : $scope.seccioE, "preu" : $scope.preuE}, function() { 
+                    $scope.producteEdit.codi = $scope.codiE;
+                    $scope.producteEdit.nom = $scope.nomE;
+                    $scope.producteEdit.seccio = $scope.seccioE;
+                    $scope.producteEdit.preu = $scope.preuE;
                     $scope.isbnE=null;
                     $scope.titolE = null;
+                    $scope.seccioE=null;
+                    $scope.preuE = null;
             
             });
             
         }
     }
     
-    $scope.esborrar= function(llibre) {
-        LlibresSvc.delete({
-        id: llibre.isbn
-        }, function(){
+    $scope.esborrar= function(producte) {
+        LlibresSvc.delete({id: producte.codi}, function(){
             
-            $scope.llibres.splice(llibre, 1);
+            $scope.producte.splice(producte, 1);
     });
     };
 });
 
 
 appLlibres.service('LlibresSvc', function ($resource) {
-    return $resource('/api/llibres/:id', null, {
+    return $resource('/api/productes/:id', null, {
         'update': {
             method: 'PUT'
         }

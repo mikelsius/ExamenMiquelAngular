@@ -7,7 +7,7 @@
 
 
 
-    <title>AngularJS Act_3</title>
+    <title>Angular</title>
 </head>
 
 <body ng-app="appLlibres">
@@ -15,16 +15,16 @@
         <div class="row">
             <div class="jumbotron">
                 <div class="container text-center">
-                    <h3>Exemple d'API REST i Angular</h3>
+                    <h3>Examen Productes</h3>
                 </div>
             </div>
         </div>
         <div class="row">
             <div class="col-md-4" id="llistatLlibres" >
                 <fieldset>
-                <legend>Llistat de llibres:</legend>
+                <legend>Llistat de productes:</legend>
                 <ul>
-                    <li ng-repeat="llibre in llibres">Titol: {{llibre.titol}} </br> ISBN: {{llibre.isbn}}
+                    <li ng-repeat="llibre in llibres">Codi: {{producte.codi}} </br> Nom: {{producte.nom}}
                         <button ng-click="editar(llibre)">Editar</button>
                       <button ng-click="esborrar(llibre)">Esborrar</button>
                        </li>
@@ -35,11 +35,11 @@
 
             <div class="col-md-offset-4 col-md-4" id="llibreNou">
                <fieldset>
-                <legend>Afegir llibre nou:</legend> Títol:
+                <legend>Afegir producte nou:</legend> Codi:
                 <input type="text" ng-model= "titolN" name="titolA" id="titolA" />
                 </br>
                 </br>
-                ISBN:
+                Nom:
                 <input type="text" ng-model="isbnN" name="isbnA" id="isbnA" />
                 </br>
                 </br>
@@ -52,11 +52,11 @@
         <div class="row">
             <div class="col-md-offset-8 col-md-4" id="llibreEditar">
                <fieldset>
-                <legend>Editar llibre:</legend> Títol:
+                <legend>Editar producte:</legend> Codi:
                 <input type="text" ng-model="titolE" id="titolE" />
                 </br>
                 </br>
-                ISBN:
+                Nom:
                 <input type="text" ng-model="isbnE" id="isbnE" />
                 </br>
                 </br>
