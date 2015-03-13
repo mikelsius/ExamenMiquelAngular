@@ -24,7 +24,7 @@
                 <fieldset>
                 <legend>Llistat de productes:</legend>
                 <ul>
-                    <li ng-repeat="llibre in llibres">Codi: {{producte.codi}} </br> Nom: {{producte.nom}}
+                    <li ng-repeat="producte in productes">Codi: {{producte.codi}} </br> Nom: {{producte.nom}} </br> Seccio: {{producte.seccio}} </br> Preu: {{producte.preu}}
                         <button ng-click="editar(llibre)">Editar</button>
                       <button ng-click="esborrar(llibre)">Esborrar</button>
                        </li>
@@ -36,11 +36,19 @@
             <div class="col-md-offset-4 col-md-4" id="llibreNou">
                <fieldset>
                 <legend>Afegir producte nou:</legend> Codi:
-                <input type="text" ng-model= "titolN" name="titolA" id="titolA" />
+                <input type="text" ng-model= "codiN" name="codiA" id="codiA" />
                 </br>
                 </br>
                 Nom:
-                <input type="text" ng-model="isbnN" name="isbnA" id="isbnA" />
+                <input type="text" ng-model="nomN" name="nomA" id="nomA" />
+                </br>
+                </br>
+                Seccio:
+                <input type="text" ng-model="seccioN" name="seccioA" id="seccioA" />
+                </br>
+                </br>
+                Preu:
+                <input type="text" ng-model="preuN" name="preuA" id="preuA" />
                 </br>
                 </br>
                 <input type="button" value="Cancelar" />
@@ -53,11 +61,19 @@
             <div class="col-md-offset-8 col-md-4" id="llibreEditar">
                <fieldset>
                 <legend>Editar producte:</legend> Codi:
-                <input type="text" ng-model="titolE" id="titolE" />
+                <input type="text" ng-model="codiE" id="codiE" />
                 </br>
                 </br>
                 Nom:
-                <input type="text" ng-model="isbnE" id="isbnE" />
+                <input type="text" ng-model="nomE" id="nomE" />
+                </br>
+                </br>
+                Seccio:
+                <input type="text" ng-model="seccioE" id="seccioE" />
+                </br>
+                </br>
+                Preu:
+                <input type="text" ng-model="preuE" id="preuE" />
                 </br>
                 </br>
                 <input type="button" value="Cancelar" />

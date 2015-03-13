@@ -37,7 +37,7 @@ appLlibres.controller("LlibresController", function ($scope, LlibresSvc) {
     }
     
     $scope.actualitzar = function() {
-        if ($scope.codiE && $scope.nomE) {
+        if ($scope.codiE && $scope.nomE && $scope.seccioE && $scope.preuE) {
             LlibresSvc.update({"_id": $scope.producteEdit._id , "codi": $scope.codiE , "nom" : $scope.nomE, "seccio" : $scope.seccioE, "preu" : $scope.preuE}, function() { 
                     $scope.producteEdit.codi = $scope.codiE;
                     $scope.producteEdit.nom = $scope.nomE;
